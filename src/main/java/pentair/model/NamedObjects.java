@@ -23,12 +23,12 @@ public enum NamedObjects {
 	VAL03("Valve Intake"), VAL04("Valve Return"), _A135("Air Sensor"), SSW11("Water Sensor"), _C105("System Clock"), _C10C("System Clock 2"),
 	p0101("Pump Preset 1");
 	
-	private final String desc;
+//	private final String desc;
 	private final Set<Keys> keys = new HashSet<Keys>();
 	//private final ObjectParams params;
 
 	private NamedObjects(String desc, Keys...keys) {
-		this.desc = desc;
+//		this.desc = desc;
 		this.keys.addAll(Arrays.asList(keys));
 	}
 

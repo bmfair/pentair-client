@@ -16,12 +16,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import pentair.model.SUBTYPS.ICHEM;
-import pentair.model.SUBTYPS.INTELLI;
 import pentair.model.messages.NotifyList;
 import pentair.model.messages.PentairMessage;
-import pentair.model.messages.RequestParamList;
-import pentair.model.messages.SetParamListReq;
 
 /**
  * Hello world!

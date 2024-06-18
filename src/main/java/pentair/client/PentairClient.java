@@ -47,17 +47,13 @@ public class PentairClient {
 	}
 
 	public void send(Object msg) throws JsonGenerationException, JsonMappingException, IOException {
-		System.out.println("Client sending message...");
+		//System.out.println("Client sending message...");
 		j.write(clientSocket.getOutputStream(), msg);
 	}
 
 	public void send(String msg) throws IOException {
-		System.out.println("Client sending message...");
+		//System.out.println("Client sending message...");
 		clientSocket.getOutputStream().write(msg.getBytes());
-	}
-
-	public void ping() throws IOException {
-		send("ping");
 	}
 
 	public PentairResponse sendReq(PentairRequest<?> msg)
@@ -72,11 +68,27 @@ public class PentairClient {
 		return j.read(responseClass, clientSocket.getInputStream());
 	}
 
+	
+	public boolean ready() throws IOException {
+		return bufferInput.ready();
+	}
+	
+	/**
+	 * Not threadsafe
+	 * @return
+	 * @throws IOException
+	 */
+	public String ping() throws IOException {
+		send("ping");
+		return bufferInput.readLine();
+	}
+	
 	public NotifyList readNotifyUpdate() throws JsonParseException, JsonMappingException, IOException {
 		if (!clientSocket.isClosed()) {
 			// First see if its a ping-pong
 			String line = bufferInput.readLine();
 			if ("pong".equals(line)) {
+				// Let us know we got a pong and try reading again
 				System.out.println("pong");
 				return readNotifyUpdate();
 			}

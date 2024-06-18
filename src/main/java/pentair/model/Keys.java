@@ -37,7 +37,9 @@ public enum Keys {
 	ZIP, ZZ_ALL,
 
 	// Not in the list, adding manually:
-	STATUS, TEMP(Parser.INTEGER);
+	STATUS;
+	//Was used in older firmware but disappeared.
+	//TEMP(Parser.INTEGER);
 
 	private Keys() {
 		this(null);

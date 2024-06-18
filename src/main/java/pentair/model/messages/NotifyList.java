@@ -1,11 +1,8 @@
 package pentair.model.messages;
 
 import java.util.List;
-import java.util.UUID;
 
 import pentair.map.MapObj;
-import pentair.model.ObjectParams;
-import pentair.model.ParamList;
 
 public class NotifyList  {
 
